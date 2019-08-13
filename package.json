@@ -1,5 +1,6 @@
 {
   "name": "lakeui",
+  "homepage": "http://1ak31sha.github.io/lakeui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -65,8 +66,10 @@
     "start-docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build:docs": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build:docs",
+    "deploy:docs":"gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -85,6 +88,7 @@
   },
   "devDependencies": {
     "chokidar": "^1.6.1",
+    "gh-pages": "^2.1.1",
     "npm-run-all": "^4.0.2",
     "react-docgen": "^2.14.0"
   },

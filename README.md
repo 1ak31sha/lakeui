@@ -1,3 +1,17 @@
+# LakeUI
+
+- personal component library and playground
+
+## Install
+```
+npm install lakeui
+```
+
+# Docs
+
+[Component Documentation](http://1ak31sha.github.io/lakeui)
+
+<hr></hr>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
