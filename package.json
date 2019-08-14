@@ -2,14 +2,31 @@
   "name": "lakeui",
   "homepage": "http://1ak31sha.github.io/lakeui",
   "version": "0.1.0",
+  "main": "./lib/index.js",
+  "private": false,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": {
+    "name": "Lakeisha Pogrzeba",
+    "email": "lakeisha.pogrzeba@gmail.com",
+    "url": "http://1ak31sha.github.io/lakeui"
+  },
+  "files": ["lib"],
+  "keywords": [
+    "components",
+    "react",
+    "react-component"
+  ],
+
   "private": true,
   "dependencies": {
-    "highlight.js": "^9.10.0",
     "styled-components": "^1.4.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+		"highlight.js": "^9.10.0",
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
@@ -78,6 +95,9 @@
     "start-docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
     "gen:docs-watch": "npm run gen:docs -- --watch",
+    "build:css": "cpx \"./src/components/**/*.css\" ./lib",
+    "prebuild:lib": "rimraf lib",
+    "build:lib": "npm-run-all --parallel build:commonjs build:css build:copy-files",
     "build:docs": "node scripts/build.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build:docs",
@@ -88,11 +108,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -100,13 +116,8 @@
     ]
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
+    "setupFiles": ["react-app-polyfill/jsdom"],
     "setupFilesAfterEnv": [],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
