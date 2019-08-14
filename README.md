@@ -7,6 +7,7 @@
 npm install lakeui
 ```
 
+https://codeburst.io/how-to-create-and-publish-your-first-node-js-module-444e7585b738
 # Docs
 
 [Component Documentation](http://1ak31sha.github.io/lakeui)
