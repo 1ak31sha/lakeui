@@ -11,13 +11,14 @@
     "email": "lakeisha.pogrzeba@gmail.com",
     "url": "http://1ak31sha.github.io/lakeui"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "components",
     "react",
     "react-component"
   ],
-
   "private": true,
   "dependencies": {
     "styled-components": "^1.4.5",
@@ -25,7 +26,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-		"highlight.js": "^9.10.0",
+    "highlight.js": "^9.10.0",
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
@@ -109,7 +110,11 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -117,8 +122,13 @@
     ]
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
-    "setupFiles": ["react-app-polyfill/jsdom"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
     "setupFilesAfterEnv": [],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
