@@ -3,7 +3,6 @@
   "homepage": "http://1ak31sha.github.io/lakeui",
   "version": "0.1.0",
   "main": "./lib/index.js",
-  "private": false,
   "engines": {
     "node": ">=4.0.0"
   },
@@ -99,6 +98,7 @@
     "prebuild:lib": "rimraf lib",
     "build:lib": "npm-run-all --parallel build:commonjs build:css build:copy-files",
     "build:docs": "node scripts/build.js",
+    "build:copy-files": "node scripts/copyBuildFiles.js",
     "test": "node scripts/test.js",
     "predeploy": "npm run build:docs",
     "deploy:docs": "gh-pages -d build",
