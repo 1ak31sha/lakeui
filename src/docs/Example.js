@@ -44,4 +44,3 @@ Example.propTypes = {
 }
 
 export default Example;
-

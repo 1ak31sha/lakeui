@@ -1,1 +1,1 @@
-export {default} from './HelloWorld.js'
+export {default} from './HelloWorld';

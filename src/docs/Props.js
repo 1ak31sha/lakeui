@@ -37,4 +37,3 @@ Props.propTypes = {
 };
 
 export default Props;
-
