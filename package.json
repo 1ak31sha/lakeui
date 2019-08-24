@@ -11,34 +11,28 @@
     "email": "lakeisha.pogrzeba@gmail.com",
     "url": "http://1ak31sha.github.io/lakeui"
   },
-  "files": [
-    "lib"
-  ],
-  "keywords": [
-    "components",
-    "react",
-    "react-component"
-  ],
+  "files": ["lib"],
+  "keywords": ["components", "react", "react-component"],
   "dependencies": {
     "styled-components": "^1.4.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "highlight.js": "^9.10.0",
     "@babel/core": "7.4.3",
+    "@babel/preset-env": "^7.5.5",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.5",
-    "babel-plugin-named-asset-import": "^0.3.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^2.2.0",
+    "babel-preset-react-app": "2.2.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "chokidar": "^1.6.1",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -52,6 +46,8 @@
     "eslint-plugin-react-hooks": "^1.5.0",
     "file-loader": "3.0.1",
     "fs-extra": "7.0.1",
+    "gh-pages": "^2.1.1",
+    "highlight.js": "^9.10.0",
     "html-webpack-plugin": "4.0.0-beta.5",
     "identity-obj-proxy": "3.0.0",
     "is-wsl": "^1.1.0",
@@ -60,6 +56,7 @@
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
     "mini-css-extract-plugin": "0.5.0",
+    "npm-run-all": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -67,16 +64,11 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
-    "chokidar": "^1.6.1",
-    "cpx": "^1.5.0",
-    "cross-env": "^5.2.0",
-    "gh-pages": "^2.1.1",
-    "npm-run-all": "^4.0.2",
-    "react-docgen": "^2.14.0",
-    "rimraf": "^2.7.0",
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
+    "react-docgen": "^2.14.0",
     "resolve": "1.10.0",
+    "rimraf": "^2.7.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
     "style-loader": "0.23.1",
@@ -109,11 +101,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -121,13 +109,8 @@
     ]
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
-    "setupFiles": [
-      "react-app-polyfill/jsdom"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts"],
+    "setupFiles": ["react-app-polyfill/jsdom"],
     "setupFilesAfterEnv": [],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
