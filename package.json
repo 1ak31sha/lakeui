@@ -16,9 +16,7 @@
   "keywords": [
     "components",
     "react",
-    "react-component",
-    "toolkit",
-    "pluralsight"
+    "react-component"
   ],
   "dependencies": {
     "highlight.js": "^9.10.0",

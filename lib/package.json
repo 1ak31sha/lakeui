@@ -10,9 +10,7 @@
   "keywords": [
     "components",
     "react",
-    "react-component",
-    "toolkit",
-    "pluralsight"
+    "react-component"
   ],
   "homepage": "http://1ak31sha.github.io/lakeui/",
   "dependencies": {
