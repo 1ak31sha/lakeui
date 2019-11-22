@@ -56,7 +56,7 @@ function createPackageFile() {
     } = packageData;
 
     const minimalPackage = {
-      name: '1ak31sha/ui',
+      name: '@1ak31sha/ui',
       author,
       version,
       description,
