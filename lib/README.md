@@ -3,11 +3,16 @@
 A Work-In-Progress library of React components by Lakeisha Pogrzeba
 
 
-- run npm publish from the /lib folder to eliminate users from having to specify 'lib' int he import path.
 
 ## Install
 ```
 npm install @1ak31sha/ui
+```
+
+## Usage
+
+```javascript
+import EyeIcon from '@1ak31sha/ui'
 ```
 
 ## Dev notes
