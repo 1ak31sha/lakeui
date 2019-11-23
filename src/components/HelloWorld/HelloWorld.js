@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /** A super lame component that says Hello with a custom message. */
 function HelloWorld({message}) {
-  return <div>Hello {message}</div>
+  return <div><input type='button' >{message}</input></div>
 }
 
 HelloWorld.propTypes = {
