@@ -11,19 +11,34 @@ const Bttn = styled.input`
 
 /** Password input with integrated label, quality tips, and show password toggle. */
 class Button extends React.Component {
+    handleClick = reactSyntheticEvent => {
+    // eslint-disable-next-line no-use-before-define
+    const { onClick } = this.props
+    if (onClick) {
+      onClick()
+    }
+  }
+
   render() {
     const createButtonStyleFromTheme = ({ button }) => ({
       borderColor: button.borderColor,
       backgroundColor: button.backgroundColor,
-      color: button.color,
+      color: button.color || 'palevioletred',
       borderWidth: '2px',
       borderStyle: 'solid',
+      // background: transparent;
+  borderRadius: '3px',
+  border: '2px solid palevioletred',
+  margin: '0 1em',
+  padding: '0.5em 2em',
+
     })
     const { text, theme } = this.props
     return (
       <Bttn
         style={createButtonStyleFromTheme(theme)}
         type="button"
+        onClick={this.handleClick}
         value={text}></Bttn>
     )
   }
