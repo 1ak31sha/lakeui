@@ -15,8 +15,8 @@
   "homepage": "http://1ak31sha.github.io/lakeui/",
   "dependencies": {
     "highlight.js": "^9.10.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "styled-components": "^1.4.5"
   }
 }

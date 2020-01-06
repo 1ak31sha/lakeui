@@ -25,15 +25,15 @@
   },
   "dependencies": {
     "highlight.js": "^9.10.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "styled-components": "^1.4.5"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
     "babel-cli": "^6.24.1",
     "babel-core": "6.22.1",
-    "babel-eslint": "7.1.1",
+    "babel-eslint": "7.2.3",
     "babel-jest": "18.0.0",
     "babel-loader": "6.2.10",
     "babel-preset-react-app": "^2.2.0",
@@ -81,18 +81,27 @@
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
   },
-
   "author": {
     "name": "Lakeisha Pogrzeba",
     "email": "lakeisha.pogrzeba@gmail",
     "url": "www.lakeisha.ca"
   },
-  "files": ["lib"],
-  "keywords": ["components", "react", "react-component"],
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "components",
+    "react",
+    "react-component"
+  ],
   "homepage": "http://1ak31sha.github.io/lakeui/",
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
-    "setupFiles": ["<rootDir>/config/polyfills.js"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
     ],
@@ -103,7 +112,9 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     }
