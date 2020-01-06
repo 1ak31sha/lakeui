@@ -48,7 +48,7 @@ Button.propTypes = {
   /** the text to show on the button */
   text: PropTypes.string,
 
-  theme: PropTypes.Object
+  theme: PropTypes.object
 }
 
 Button.defaultProps = {
@@ -56,9 +56,9 @@ Button.defaultProps = {
 
   theme: {
     button: {
-      // backgroundColor: "white",
-      // borderColor: "red",
-      // color: "blue"
+      backgroundColor: "white",
+      borderColor: "red",
+      color: "blue"
     },
   },
 }
