@@ -5,17 +5,17 @@ function ButtonContainer() {
   const [theme, setTheme] = useState({
     button: {
       backgroundColor: 'white',
-      borderColor: 'red',
-      color: 'blue',
+      borderColor: 'palevioletred',
+      color: 'palevioletred',
     },
   })
 
   const toggleTheme = () => {
     setTheme({
       button: {
-        backgroundColor: 'white',
-        borderColor: 'red',
-        color: 'black',
+        backgroundColor: 'black',
+        borderColor: 'palevioletred',
+        color: 'palevioletred',
       },
     })
   }
