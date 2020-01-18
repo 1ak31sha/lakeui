@@ -1,41 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
+// import styled, {css} from 'styled-components'
 
-// border-radius: 0.25em;
-// border: 2px solid palevioletred;
-// background: ${props => (props.primary ? 'palevioletred' : 'white')};
 
-const fontSizes = {}
-// case 0: return 'palevioletred'
-// case 1: return '#121212'
-// case 2: return 'black'
-// color: $props => {
-// props.color === 2 ? 'black' : '#121212'
-// }};
-// background: ${props => (props.dark ? 'orange' : 'white')};
-const Bttn = styled.input`
-  font-size: ${props => {
-    switch (props.fontSize) {
-      case 0:
-        return css`font-size: 12pt`
-      case 1:
-        return '24pt'
-      case 2:
-        return '48pt'
-    }
-  }};
-`
-// margin: ${props => {
-// switch(props.margin){
-// case 0: return '1px'
-// case 1: return '3px'
-// case 2: return '50px'
-// }
-// }};
-
-/** Password input with integrated label, quality tips, and show password toggle. */
-class Button extends React.Component {
+class Lifecycle extends React.Component {
   handleClick = reactSyntheticEvent => {
     // eslint-disable-next-line no-use-before-define
     const { onClick } = this.props
@@ -59,8 +27,6 @@ class Button extends React.Component {
       width: button.width,
       padding: button.padding,
       margin:button.margin
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
     })
     const themes = {
       light: {
@@ -69,53 +35,36 @@ class Button extends React.Component {
         color: 'palevioletred',
         borderStyle: 'solid',
       },
-      // borderRadius: '3px',
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
       darkTheme: {
         borderColor: 'palevioletred',
         backgroundColor: '#121212',
         color: 'palevioletred',
       },
-      // borderStyle: 'solid',
-      // borderRadius: '3px',
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
     }
     const { text, theme, dark, margin, fontSize } = this.props
     if (theme) {
       const finalTheme = themes.light
     } else {
       return (
-        <Bttn
-          type="button"
+        <div
           onClick={this.handleClick}
-          fontSize={fontSize}
-          margin={margin}
-          value={text}></Bttn>
+          >Lifecycle</div>
       )
     }
     return (
-      <Bttn
+      <div
         style={createButtonStyleFromTheme(theme)}
-        type="button"
         onClick={this.handleClick}
-        fontSize={fontSize}
-        margin={margin}
-        value={text}></Bttn>
+        >Lifecycle</div>
     )
   }
 }
 
-Button.propTypes = {
+Lifecycle.propTypes = {
   /** the text to show on the button */
-  text: PropTypes.string,
-
-  theme: PropTypes.object,
 }
 
-Button.defaultProps = {
-  text: 'Click me',
+Lifecycle.defaultProps = {
 
   theme: {
     button: {
@@ -133,4 +82,4 @@ Button.defaultProps = {
   },
 }
 
-export default Button
+export default Lifecycle
