@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
 const StyledInput = styled.input`
@@ -15,7 +16,7 @@ class Input extends React.Component {
     const {
       label,
       value,
-      render,
+      doesRender,
       placeholder,
       onChange,
       autofocus,
@@ -24,10 +25,10 @@ class Input extends React.Component {
     if (debug) {
       console.log(onChange)
     }
-
+    console.log(this.props)
     return (
       <React.Fragment>
-        {render && (
+        {doesRender && (
           <StyledInput
             value={value}
             placeholder={placeholder}
@@ -47,5 +48,17 @@ class Input extends React.Component {
     return onChange(evt.target.value, type)
   }
 }
+
+
+Input.propTypes = {
+  doesRender: PropTypes.bool
+}
+// Input.defaultProps = {
+  // doesRender: true,
+// 
+// }
+ Input.defaultProps = {
+ doesRender: true,
+ }
 
 export default Input

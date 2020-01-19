@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 function Func() {
   const [index, setIndex] = useState(0)
-  console.log(`function component`)
+  console.log('function component')
   // const [theme, setTheme] = useState()
   //const themes = {
   //  light: {
@@ -55,6 +55,10 @@ class EyeIcon2 extends React.Component {
   }
   static getDerivedStateFromProps(props, state){
     console.log('getderivedStateFromProps',props,state)
+  }
+    static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
   }
   render() {
     console.log('render')

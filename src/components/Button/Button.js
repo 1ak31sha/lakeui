@@ -14,22 +14,22 @@ import styled, { css } from 'styled-components'
 // props.color === 2 ? 'black' : '#121212'
 // }};
 // background: ${props => (props.dark ? 'orange' : 'white')};
-const Bttn = styled.input`
-  font-size: ${props => {
-    switch (props.fontSize) {
-      case 0:
-        return css`
-          font-size: 12pt;
-        `
-      case 1:
-        return '24pt'
-      case 2:
-        return '48pt'
-      default:
-        return '36'
-    }
-  }};
-`
+//const Bttn = styled.input
+//  font-size: ${props => {
+//    switch (props.fontSize) {
+//      case 0:
+//        return css
+//          font-size: 12pt;
+//        
+//      case 1:
+//        return '24pt'
+//      case 2:
+//        return '48pt'
+//      default:
+//        return '36'
+//    }
+//  }};
+//
 // margin: ${props => {
 // switch(props.margin){
 // case 0: return '1px'
@@ -81,22 +81,22 @@ class Button extends React.Component {
       // const finalTheme = themes.light
     } else {
       return (
-        <Bttn
+        <input
           type="button"
           onClick={this.handleClick}
           fontSize={fontSize}
           margin={margin}
-          value={text}></Bttn>
+          value={text}></input>
       )
     }
     return (
-      <Bttn
+      <input
         style={createButtonStyleFromTheme(theme)}
         type="button"
         onClick={this.handleClick}
         fontSize={fontSize}
         margin={margin}
-        value={text}></Bttn>
+        value={text}></input>
     )
   }
 }
