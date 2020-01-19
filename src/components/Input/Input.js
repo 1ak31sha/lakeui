@@ -14,12 +14,10 @@ class Input extends React.Component {
   render() {
     console.log('rendering')
     const {
-      label,
       value,
       doesRender,
       placeholder,
       onChange,
-      autofocus,
       debug,
     } = this.props
     if (debug) {
