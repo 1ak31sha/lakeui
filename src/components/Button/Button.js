@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 
 // border-radius: 0.25em;
 // border: 2px solid palevioletred;
 // background: ${props => (props.primary ? 'palevioletred' : 'white')};
 
-const fontSizes = {}
+// const fontSizes = {}
 // case 0: return 'palevioletred'
 // case 1: return '#121212'
 // case 2: return 'black'
@@ -14,18 +14,22 @@ const fontSizes = {}
 // props.color === 2 ? 'black' : '#121212'
 // }};
 // background: ${props => (props.dark ? 'orange' : 'white')};
-const Bttn = styled.input`
-  font-size: ${props => {
-    switch (props.fontSize) {
-      case 0:
-        return css`font-size: 12pt`
-      case 1:
-        return '24pt'
-      case 2:
-        return '48pt'
-    }
-  }};
-`
+//const Bttn = styled.input
+//  font-size: ${props => {
+//    switch (props.fontSize) {
+//      case 0:
+//        return css
+//          font-size: 12pt;
+//        
+//      case 1:
+//        return '24pt'
+//      case 2:
+//        return '48pt'
+//      default:
+//        return '36'
+//    }
+//  }};
+//
 // margin: ${props => {
 // switch(props.margin){
 // case 0: return '1px'
@@ -50,59 +54,49 @@ class Button extends React.Component {
       backgroundColor: this.props.color || button.backgroundColor,
       color: button.color,
 
-      fontSize: this.props.fontSize ||button.fontSize,
+      fontSize: this.props.fontSize || button.fontSize,
       fontFamily: button.fontFamily,
       borderWidth: button.borderWidth,
       borderStyle: button.borderStyle,
       borderRadius: button.borderRadius,
-      borderWidth: button.borderWidth,
       width: button.width,
       padding: button.padding,
-      margin:button.margin
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
+      margin: button.margin,
     })
-    const themes = {
-      light: {
-        borderColor: 'palevioletred',
-        backgroundColor: '#fff',
-        color: 'palevioletred',
-        borderStyle: 'solid',
-      },
-      // borderRadius: '3px',
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
-      darkTheme: {
-        borderColor: 'palevioletred',
-        backgroundColor: '#121212',
-        color: 'palevioletred',
-      },
-      // borderStyle: 'solid',
-      // borderRadius: '3px',
-      // margin: '0 1em',
-      // padding: '0.5em 2em',
-    }
-    const { text, theme, dark, margin, fontSize } = this.props
+    //const themes = {
+    //  light: {
+    //    borderColor: 'palevioletred',
+    //    backgroundColor: '#fff',
+    //    color: 'palevioletred',
+    //    borderStyle: 'solid',
+    //  },
+    //  darkTheme: {
+    //    borderColor: 'palevioletred',
+    //    backgroundColor: '#121212',
+    //    color: 'palevioletred',
+    //  },
+    //}
+    const { text, theme, margin, fontSize } = this.props // dark
     if (theme) {
-      const finalTheme = themes.light
+      // const finalTheme = themes.light
     } else {
       return (
-        <Bttn
+        <input
           type="button"
           onClick={this.handleClick}
           fontSize={fontSize}
           margin={margin}
-          value={text}></Bttn>
+          value={text}></input>
       )
     }
     return (
-      <Bttn
+      <input
         style={createButtonStyleFromTheme(theme)}
         type="button"
         onClick={this.handleClick}
         fontSize={fontSize}
         margin={margin}
-        value={text}></Bttn>
+        value={text}></input>
     )
   }
 }
@@ -128,7 +122,7 @@ Button.defaultProps = {
       width: '8em',
       padding: '0.5rem 0',
       margin: '0.5rem 1rem',
-      borderWidth: '0.051em'
+      borderWidth: '0.051em',
     },
   },
 }
