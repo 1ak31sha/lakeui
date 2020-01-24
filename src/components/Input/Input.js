@@ -25,7 +25,7 @@ class Input extends React.Component {
     }
     console.log(this.props)
     return (
-      <React.Fragment>
+      <>
         {doesRender && (
           <StyledInput
             value={value}
@@ -35,7 +35,7 @@ class Input extends React.Component {
             size={16}
           />
         )}
-      </React.Fragment>
+      </>
     )
   }
   typing = evt => {

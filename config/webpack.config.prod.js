@@ -169,20 +169,20 @@ module.exports = {
   },
 
   // We use PostCSS for autoprefixing only.
-  postcss: function() {
-    return [
-      autoprefixer({
-        browsers: [
-          '>1%',
-          'last 4 versions',
-          'Firefox ESR',
-          'not ie < 9', // React doesn't support IE8 anyway
-        ]
-      }),
-    ];
-  },
+  // postcss: function() {
+  // return [
+  // autoprefixer({
+  // browsers: [
+  // '>1%',
+  // 'last 4 versions',
+  // 'Firefox ESR',
+  // 'not ie < 9', // React doesn't support IE8 anyway
+  // // // // // // // // ]
+  // }),
+  // ];
+  // },
   plugins: [
-    // Makes some environment variables available in index.html.
+    // // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage"
