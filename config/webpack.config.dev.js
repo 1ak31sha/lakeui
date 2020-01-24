@@ -93,23 +93,9 @@ module.exports = {
       },
     ],
     loaders: [
-      // ** ADDING/UPDATING LOADERS **
-      // The "url" loader handles all assets unless explicitly excluded.
-      // The `exclude` list *must* be updated with every change to loader extensions.
-      // When adding a new loader, you must add its `test`
-      // as a new entry in the `exclude` list for "url" loader.
-
-      // "url" loader embeds assets smaller than specified size as data URLs to avoid requests.
-      // Otherwise, it acts like the "file" loader.
       {
         exclude: [
           /\.html$/,
-          // We have to write /\.(js|jsx)(\?.*)?$/ rather than just /\.(js|jsx)$/
-          // because you might change the hot reloading server from the custom one
-          // to Webpack's built-in webpack-dev-server/client?/, which would not
-          // get properly excluded by /\.(js|jsx)$/ because of the query string.
-          // Webpack 2 fixes this, but for now we include this hack.
-          // https://github.com/facebookincubator/create-react-app/issues/1713
           /\.(js|jsx)(\?.*)?$/,
           /\.css$/,
           /\.json$/,
@@ -133,23 +119,14 @@ module.exports = {
           cacheDirectory: true,
         },
       },
-      // "postcss" loader applies autoprefixer to our CSS.
-      // "css" loader resolves paths in CSS and adds assets as dependencies.
-      // "style" loader turns CSS into JS modules that inject <style> tags.
-      // In production, we use a plugin to extract that CSS to a file, but
-      // in development "style" loader enables hot editing of CSS.
       {
-        test: /\.css$/,
-        loader: 'style!css?importLoaders=1!postcss',
-        //loader: 'style!css?modules&localIdentName=[name]__[local]___[hash:base64:5]'
+        test: /\.css$/i,
+        loader: 'css-loader',
       },
-      // JSON is not enabled by default in Webpack but both Node and Browserify
-      // allow it implicitly so we also enable it.
       {
         test: /\.json$/,
         loader: 'json',
       },
-      // "file" loader for svg
       {
         test: /\.svg$/,
         loader: 'file',
@@ -162,19 +139,6 @@ module.exports = {
     ],
   },
 
-  // We use PostCSS for autoprefixing only.
-  postcss: function() {
-    return [
-      autoprefixer({
-        browsers: [
-          '>1%',
-          'last 4 versions',
-          'Firefox ESR',
-          'not ie < 9', // React doesn't support IE8 anyway
-        ],
-      }),
-    ]
-  },
   plugins: [
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
