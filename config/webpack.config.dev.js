@@ -87,11 +87,12 @@ module.exports = {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
     rules: [
-      //{
-      //  test: /\.(js|jsx)$/,
-      //  loader: 'eslint',
-      //  include: paths.appSrc,
-      //},
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        include: paths.appSrc,
+        enforce: 'pre',
+      },
       {
         exclude: [
           /\.html$/,
@@ -151,14 +152,6 @@ module.exports = {
         loader: 'file',
         query: {
           name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
-      {
-        test: /\.(js$|jsx)/,
-        include: paths.appSrc,
-        loader: 'eslint-loader',
-        options: {
-          // eslint options (if necessary)
         },
       },
 
