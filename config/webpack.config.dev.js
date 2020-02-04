@@ -68,12 +68,12 @@ module.exports = {
     // We use `fallback` instead of `root` because we want `node_modules` to "win"
     // if there any conflicts. This matches Node resolution mechanism.
     // https://github.com/facebookincubator/create-react-app/issues/253
-    fallback: paths.nodePaths,
+    // fallback: paths.nodePaths,
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', ''],
+    extensions: ['.js', '.json', '.jsx'],
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -85,55 +85,74 @@ module.exports = {
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
-    preLoaders: [
+    rules: [
       {
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
-        loader: 'eslint',
+        use: {
+          loader: 'eslint-loader',
+        },
         include: paths.appSrc,
       },
-    ],
-    loaders: [
-      {
-        exclude: [
-          /\.html$/,
-          /\.(js|jsx)(\?.*)?$/,
-          /\.css$/,
-          /\.json$/,
-          /\.svg$/,
-        ],
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
+      //{
+      //  exclude: [
+      //    /\.html$/,
+      //    /\.(js|jsx)(\?.*)?$/,
+      //    /\.css$/,
+      //    /\.json$/,
+      //    /\.svg$/,
+      //  ],
+      //  use: {
+      //    loader: 'url-loader',
+      //  },
+      //  query: {
+      //    limit: 10000,
+      //    name: 'static/media/[name].[hash:8].[ext]',
+      //  },
+      //},
       // Process JS with Babel.
+      //   {
+      //     test: /\.(js|jsx)$/,
+      //     include: paths.appSrc,
+      //     loader: '@babel/core',
+      //     query: {
+      //       // This is a feature of `babel-loader` for webpack (not Babel itself).
+      //       // It enables caching results in ./node_modules/.cache/babel-loader/
+      //       // directory for faster rebuilds.
+      //       cacheDirectory: true,
+      //     },
+      //   },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.m?(js|jsx)$/,
         include: paths.appSrc,
-        loader: 'babel',
-        query: {
-          // This is a feature of `babel-loader` for webpack (not Babel itself).
-          // It enables caching results in ./node_modules/.cache/babel-loader/
-          // directory for faster rebuilds.
-          cacheDirectory: true,
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        ],
       },
       {
         test: /\.css$/i,
-        loader: 'css-loader',
+        use: ['css-loader'],
       },
-      {
-        test: /\.json$/,
-        loader: 'json',
-      },
-      {
-        test: /\.svg$/,
-        loader: 'file',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
+      //{
+      //  test: /\.json$/,
+      //  loader: 'json-loader',
+      //},
+      //{
+      //  test: /\.svg$/,
+      //  use: [
+      //    {
+      //      loader: 'file-loader',
+      //      query: {
+      //        name: 'static/media/[name].[hash:8].[ext]',
+      //      },
+      //    },
+      //  ],
+      //},
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ],
@@ -144,12 +163,12 @@ module.exports = {
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In development, this will be an empty string.
-    new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
     }),
+    new InterpolateHtmlPlugin(env.raw),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
     new webpack.DefinePlugin(env.stringified),
