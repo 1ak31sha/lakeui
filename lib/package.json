@@ -5,7 +5,7 @@
     "email": "lakeisha.pogrzeba@gmail",
     "url": "www.lakeisha.ca"
   },
-  "version": "1.3.5",
+  "version": "1.3.3",
   "main": "./index.js",
   "keywords": [
     "components",
