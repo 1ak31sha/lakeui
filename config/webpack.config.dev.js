@@ -25,6 +25,7 @@ var env = getClientEnvironment(publicUrl)
 // The production configuration is different and lives in a separate file.
 process.traceDeprecation = true
 module.exports = {
+  mode: 'development',
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
@@ -158,8 +159,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // 'style-loader',
-          // 'css-loader',
+           'style-loader',
+           'css-loader',
           {
             loader: 'postcss-loader',
             options: {
