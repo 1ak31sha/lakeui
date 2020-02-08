@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+// import styled, { css } from 'styled-components'
 
 // border-radius: 0.25em;
 // border: 2px solid palevioletred;

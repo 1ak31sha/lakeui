@@ -125,8 +125,10 @@
     }
   },
   "babel": {
-    "presets": [],
-    "plugins": []
+    "presets": [
+    ],
+    "plugins": [
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

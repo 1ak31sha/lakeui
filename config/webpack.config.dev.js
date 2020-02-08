@@ -90,12 +90,12 @@ module.exports = {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
     rules: [
-      //{
-      //  enforce: 'pre',
-      //  test: /\.(js|jsx)$/,
-      //  loader: 'eslint',
-      //  include: paths.appSrc,
-      //},
+      {
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
+        loader: 'eslint-loader',
+        include: paths.appSrc,
+      },
       //// ** ADDING/UPDATING LOADERS **
       //// The "url" loader handles all assets unless explicitly excluded.
       //// The `exclude` list *must* be updated with every change to loader extensions.
@@ -142,7 +142,12 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+             presets: ['@babel/preset-react'],
+            plugins: [
+              '@babel/plugin-transform-react-jsx',
+              '@babel/plugin-proposal-class-properties',
+              'transform-es2015-modules-commonjs',
+            ],
           },
         },
       },
@@ -159,8 +164,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-           'style-loader',
-           'css-loader',
+          'style-loader',
+          'css-loader',
           {
             loader: 'postcss-loader',
             options: {

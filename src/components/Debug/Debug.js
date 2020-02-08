@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 function Func() {
-  const [index, setIndex] = useState(0)
+  // const [index, setIndex] = useState(0)
   console.log('function component')
   // const [theme, setTheme] = useState()
   //const themes = {
@@ -40,7 +40,6 @@ function Func() {
     <div className="">
       <br />
       <br />
-      fontSize:{index}
     </div>
   )
 }
