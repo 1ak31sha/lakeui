@@ -44,24 +44,22 @@ function ButtonContainer() {
 
   return (
     <div className="">
-      <Button text="dark Theme" onClick={() => setTheme(themes.dark)} />
+      <Button 
+        text="default"
+        onClick={() => setTheme(themes.dark)} />
       <br />
       <Button
-        color={'green'}
-        fontSize={32}
-        margin={index % 3}
-        text="Calculate"
-        theme={theme}
-        onClick={() => toggleTheme()}
-      />
-      <Button
-        color={index % 3}
-        margin={index % 3}
-        text="Calculate"
-        onClick={() => toggleTheme()}
+        text="custom theme"
+        theme={{
+          button: {
+            backgroundColor: 'black',
+            borderColor: 'palevioletred',
+            color: 'palevioletred',
+          },
+        }}
+        onClick={() => setTheme(themes.dark)}
       />
       <br />
-      fontSize:{index}
     </div>
   )
 }
