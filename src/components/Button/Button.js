@@ -13,37 +13,42 @@ class Button extends React.Component {
   }
 
   render() {
+    const lightTheme = {
+      button: {
+        backgroundColor: 'white',
+        color: 'palevioletred',
+      },
+    }
     const createButtonStyleFromTheme = ({ button }) => ({
-      borderColor: button.borderColor,
-      backgroundColor: this.props.color || button.backgroundColor,
-      color: button.color,
+      backgroundColor: button.backgroundColor || 'black',
+      borderColor: button.borderColor || 'palevioletred',
+      color: button.color || 'palevioletred',
 
-      fontSize: this.props.fontSize || button.fontSize,
-      fontFamily: button.fontFamily,
+      fontSize: button.fontSize || '18pt',
+      fontFamily: button.fontFamily || 'verdana',
+
       borderWidth: button.borderWidth,
       borderStyle: button.borderStyle,
       borderRadius: button.borderRadius,
-      width: button.width || "9rem",
+
+      width: button.width || '9rem',
       padding: button.padding,
       margin: button.margin,
     })
-    const { text, theme } = this.props // dark
-    if (theme) {
-      return (
-        <input
-          style={createButtonStyleFromTheme(theme)}
-          type="button"
-          onClick={this.handleClick}
-          value={text}></input>
-      )
-    } else {
-      return (
-        <input
-          type="button"
-          onClick={this.handleClick}
-          value={text}></input>
-      )
-    }
+    const { text, theme, light } = this.props // dark
+    console.log(createButtonStyleFromTheme(theme))
+    console.log(light)
+    return (
+      <input
+        style={
+          light
+            ? createButtonStyleFromTheme(lightTheme)
+            : createButtonStyleFromTheme(theme)
+        }
+        type="button"
+        onClick={this.handleClick}
+        value={text}></input>
+    )
   }
 }
 
@@ -57,17 +62,18 @@ Button.propTypes = {
 Button.defaultProps = {
   text: 'Click me',
 
+  // TODO remove this most likely
   theme: {
     button: {
-      backgroundColor: 'black',
-      borderColor: 'palevioletred',
-      color: 'palevioletred',
-      fontSize: '18pt',
-      fontFamily: 'Avenir Next',
-      borderRadius: '3px',
-      padding: '0.5rem 0',
-      margin: '0.5rem 1rem',
-      borderWidth: '0.240rem',
+      // backgroundColor: 'black',
+      // borderColor: 'palevioletred',
+      // color: 'palevioletred',
+      // fontSize: '18pt',
+      // fontFamily: 'Avenir Next',
+      // borderRadius: '3px',
+      // padding: '0.5rem 0',
+      // margin: '0.5rem 1rem',
+      // borderWidth: '0.240rem',
     },
   },
 }

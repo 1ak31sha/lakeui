@@ -44,17 +44,18 @@ function ButtonContainer() {
 
   return (
     <div className="">
-      <Button 
-        text="default"
-        onClick={() => setTheme(themes.dark)} />
+      <Button text="default" onClick={() => {}} />
+      <br />
+
+      <Button light text="default light" onClick={() => {}} />
       <br />
       <Button
         text="custom theme"
         theme={{
           button: {
-            backgroundColor: 'black',
-            borderColor: 'palevioletred',
-            color: 'palevioletred',
+            backgroundColor: 'yellow',
+            borderColor: 'black',
+            color: 'blue',
           },
         }}
         onClick={() => setTheme(themes.dark)}
