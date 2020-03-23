@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Button from '@1ak31sha/ui/Button'
-
+import Button from '@1ak31sha/ui/Menu'
 function ButtonContainer() {
   const [theme, setTheme] = useState(false)
 
@@ -15,18 +14,6 @@ function ButtonContainer() {
         text="Toggle Default Themes"
         onClick={() => {
           toggleTheme(theme)
-        }}
-      />
-      <br />
-      <Button
-        text="Custom Theme"
-        theme={{
-          button: {
-            backgroundColor: 'yellow',
-            borderColor: 'black',
-            color: 'blue',
-            borderRadius: '0.07em'
-          },
         }}
       />
     </div>

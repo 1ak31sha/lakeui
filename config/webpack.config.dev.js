@@ -191,13 +191,23 @@ module.exports = {
       //  loader: 'json',
       //},
       //// "file" loader for svg
-      //{
-      //  test: /\.svg$/,
-      //  loader: 'file',
-      //  query: {
-      //    name: 'static/media/[name].[hash:8].[ext]',
-      //  },
-      //},
+  // {
+  //    test: /\.svg$/,
+  //    loader: 'file',
+  // query: {
+          // name: 'static/media/[name].[hash:8].[ext]',
+  //     },
+        {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
+      },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ],

@@ -1,0 +1,35 @@
+.pill {
+  background-color: rgb(228, 228, 228);
+  border-radius: 19px;
+  height: 38px;
+  width: 101px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.kebab {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 38px;
+  margin-left: 5px;
+  margin-right: 5px;
+  flex-grow: 1;
+}
+.dot {
+  height: 4.4px;
+  width: 4.4px;
+  border-radius: 100em;
+  background-color: rgb(77, 77, 77);
+  z-index: 0;
+  margin: 1px;
+}
+.label {
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 9;
+}

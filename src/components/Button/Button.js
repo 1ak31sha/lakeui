@@ -1,11 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import styled, { css } from 'styled-components'
 
-/** Password input with integrated label, quality tips, and show password toggle. */
 class Button extends React.Component {
   handleClick = reactSyntheticEvent => {
-    // eslint-disable-next-line no-use-before-define
     const { onClick } = this.props
     if (onClick) {
       onClick()
@@ -27,13 +24,15 @@ class Button extends React.Component {
       fontSize: button.fontSize || '18pt',
       fontFamily: button.fontFamily || 'verdana',
 
-      borderWidth: button.borderWidth,
+      borderWidth: button.borderWidth || '2.1px',
       borderStyle: button.borderStyle,
-      borderRadius: button.borderRadius,
+      borderRadius: button.borderRadius || '1rem',
 
-      width: button.width || '9rem',
-      padding: button.padding,
-      margin: button.margin,
+      width: button.width,
+      padding: button.padding || '0.14em',
+      paddingLeft: '1em',
+      paddingRight: '1em',
+      margin: button.margin || '0.22em',
     })
     const { text, theme, light } = this.props // dark
     console.log(createButtonStyleFromTheme(theme))
@@ -62,19 +61,8 @@ Button.propTypes = {
 Button.defaultProps = {
   text: 'Click me',
 
-  // TODO remove this most likely
   theme: {
-    button: {
-      // backgroundColor: 'black',
-      // borderColor: 'palevioletred',
-      // color: 'palevioletred',
-      // fontSize: '18pt',
-      // fontFamily: 'Avenir Next',
-      // borderRadius: '3px',
-      // padding: '0.5rem 0',
-      // margin: '0.5rem 1rem',
-      // borderWidth: '0.240rem',
-    },
+    button: {},
   },
 }
 
