@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './Menu.css'
-import ReactLogo from  './action-popup-frame.svg'
+// import ReactLogo from  './action-popup-frame.svg'
 class Button extends React.Component {
   handleClick = reactSyntheticEvent => {
     const { onClick } = this.props
@@ -43,9 +43,9 @@ class Button extends React.Component {
     const { text, theme, light } = this.props // dark
     console.log(createButtonStyleFromTheme(theme))
     console.log(light)
+    // <img src={ReactLogo} alt="React Logo" />
     return (
       <React.Fragment>
-               <img src={ReactLogo} alt="React Logo" />
 
       <button
         style={
@@ -62,8 +62,8 @@ class Button extends React.Component {
             <div class="dot"></div>
             <div class="dot"></div>
           </div>
-          <div class="label">
-            <div>Actions</div></div>
+          <div class="labelContainer">
+            <div class= "label">Actions</div></div>
         </div>
       </button>
     </React.Fragment>
