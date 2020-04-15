@@ -63,7 +63,7 @@ class Button extends React.Component {
             <div class="dot"></div>
           </div>
           <div class="labelContainer">
-            <div class= "label">Actions</div></div>
+          <div class="label">Actions</div></div>
         </div>
       </button>
     </React.Fragment>

@@ -1,0 +1,12 @@
+{
+  "packages/bundle-ue/src/components/*.tsx": {
+    "alternate": "packages/bundle-ue/src/components/{dirname}/{basename}.css"
+  },
+  "packages/bundle-ue/src/components/*.css": {
+    "alternate": "packages/bundle-ue/src/components/{dirname}/{basename}.stories.tsx"
+  },
+  "packages/bundle-ue/src/components/*.stories.tsx": {
+    "alternate": "packages/bundle-ue/src/components/{dirname}/{basename}.tsx"
+  }
+}
+
