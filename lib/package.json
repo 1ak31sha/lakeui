@@ -3,7 +3,7 @@
   "author": {
     "name": "Lakeisha Pogrzeba",
     "email": "lakeisha.pogrzeba@gmail",
-    "url": "www.lakeisha.ca"
+    "url": "https://www.lakeisha.ca"
   },
   "version": "1.3.3",
   "main": "./index.js",
@@ -14,6 +14,8 @@
   ],
   "homepage": "http://1ak31sha.github.io/lakeui/",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "highlight.js": "^9.10.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

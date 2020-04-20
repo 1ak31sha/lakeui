@@ -7,11 +7,11 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "prestart": "npm run gen:docs",
+    "prestart": "yarn run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
     "start:docs": "node scripts/start.js",
     "gen:docs": "node scripts/generateComponentData.js",
-    "gen:docs-watch": "npm run gen:docs -- --watch",
+    "gen:docs-watch": "yarn run gen:docs --watch",
     "build:docs": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "build:css": "cpx \"./src/components/**/*.css\" ./lib",
@@ -24,6 +24,9 @@
     "prepublish": "npm run build:lib"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "emotion": "^10.0.27",
     "highlight.js": "^9.10.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -89,7 +92,7 @@
   "author": {
     "name": "Lakeisha Pogrzeba",
     "email": "lakeisha.pogrzeba@gmail",
-    "url": "www.lakeisha.ca"
+    "url": "https://www.lakeisha.ca"
   },
   "files": [
     "lib"
