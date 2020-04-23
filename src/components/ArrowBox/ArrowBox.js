@@ -16,31 +16,45 @@ const ArrowBox = ({
     bottom,
     topp,
     right,
-    borderBottomColor,
-    borderTopColor,
-    borderLeftColor,
-    borderRightColor,
+    borderBottomBeforeColor,
+    borderBottomAfterColor,
+    borderTopBeforeColor,
+    borderTopAfterColor,
+    borderLeftBeforeColor,
+    borderLeftAfterColor,
+    borderRightBeforeColor,
+    borderRightAfterColor,
     marginTop,
-    marginRight,
-    marginBottom,
     marginLeft = undefined
 
   switch (position) {
     case "TOP":
       left = "50%"
       bottom = "100%"
-      borderBottomColor = borderColor
+      borderBottomBeforeColor = borderColor
+      borderBottomAfterColor = color
       marginLeft = arrowSize
       break
     case "RIGHT":
       left = "100%"
       topp = "50%"
-      borderLeftColor = borderColor
+      borderLeftBeforeColor = borderColor
+      borderLeftAfterColor = color
       marginTop = arrowSize
       break
     case "BOTTOM":
+      topp = "100%"
+      left = "50%"
+      borderTopBeforeColor = borderColor
+      borderTopAfterColor = color
+      marginLeft = arrowSize
       break
     case "LEFT":
+      right = "100%"
+      topp = "50%"
+      borderRightBeforeColor = borderColor
+      borderRightAfterColor = color
+      marginTop = arrowSize
       break
     default:
       break
@@ -67,19 +81,23 @@ const ArrowBox = ({
           position: absolute;
           pointer-events: none;
         }
-        &:after {
-          border-bottom-color: ${color};
-          border-left-color: ${borderLeftColor};
-          border-width: ${arrowSize}px;
-          margin-left: -${marginLeft}px;
-          margin-top: -${marginTop}px;
-        }
         &:before {
-          border-bottom-color: ${borderColor};
-          border-left-color: ${borderLeftColor};
+          border-bottom-color: ${borderBottomBeforeColor};
+          border-left-color: ${borderLeftBeforeColor};
+          border-top-color: ${borderTopBeforeColor};
+          border-right-color: ${borderRightBeforeColor};
           border-width: ${arrowSize + borderSize}px;
           margin-left: -${marginLeft + borderSize}px;
           margin-top: -${marginTop + borderSize}px;
+        }
+        &:after {
+          border-bottom-color: ${borderBottomAfterColor};
+          border-left-color: ${borderLeftAfterColor};
+          border-top-color: ${borderTopAfterColor};
+          border-right-color: ${borderRightAfterColor};
+          border-width: ${arrowSize}px;
+          margin-left: -${marginLeft}px;
+          margin-top: -${marginTop}px;
         }
       `}
     >
