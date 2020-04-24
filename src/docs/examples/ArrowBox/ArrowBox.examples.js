@@ -1,46 +1,47 @@
 import React from "react"
 import ArrowBox from "@1ak31sha/ui/ArrowBox"
 function ArrowBoxContainer() {
+  const propsTest = {
+    position: "TOP",
+    size:2,
+    backgroundColor:"white",
+    borderWidth:1,
+    borderColor:"palevioletred",
+  }
   return (
     <div>
       <ArrowBox
-        position={"TOP"}
-        size={2}
-        color={"white"}
-        borderWidth={1}
-        borderColor={"palevioletred"}
+        {...propsTest}
       >
+      Brought to you by Lakeisha..........
+      Brought to you by Lakeisha..........
       Brought to you by Lakeisha..........
       </ArrowBox>
       <br />
       <ArrowBox
+        arrowSize={15}
         position={"RIGHT"}
         size={2}
-        color={"white"}
-        borderWidth={1}
+        backgroundColor={"#232"}
+        textColor={"white"}
+        borderWidth={4}
         borderColor={"palevioletred"}
       >
       Brought to you by Lakeisha..........
       </ArrowBox>
       <br />
       <ArrowBox
-        position={"BOTTOM"}
-        size={2}
-        color={"white"}
-        borderWidth={1}
-        borderColor={"palevioletred"}
       >
-      Brought to you by Lakeisha..........
+        No Props baby :)
       </ArrowBox>
       <br />
       <ArrowBox
         position={"LEFT"}
         size={2}
-        color={"white"}
+        backgroundColor={"white"}
         borderWidth={1}
         borderColor={"limegreen"}
       >
-      Brought to you by Lakeisha..........
       </ArrowBox>
     </div>
   )

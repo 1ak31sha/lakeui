@@ -3,14 +3,14 @@ import PropTypes from "prop-types"
 import { css, cx } from "emotion"
 import "./ArrowBox.css"
 const arrowSize = 10
-const borderSize = 1
 const ArrowBox = ({
   children,
   position,
-  size,
-  color,
+  backgroundColor,
   borderWidth,
   borderColor,
+  textColor,
+  arrowSize
 }) => {
   let left,
     bottom,
@@ -32,28 +32,28 @@ const ArrowBox = ({
       left = "50%"
       bottom = "100%"
       borderBottomBeforeColor = borderColor
-      borderBottomAfterColor = color
+      borderBottomAfterColor = backgroundColor
       marginLeft = arrowSize
       break
     case "RIGHT":
       left = "100%"
       topp = "50%"
       borderLeftBeforeColor = borderColor
-      borderLeftAfterColor = color
+      borderLeftAfterColor = backgroundColor
       marginTop = arrowSize
       break
     case "BOTTOM":
       topp = "100%"
       left = "50%"
       borderTopBeforeColor = borderColor
-      borderTopAfterColor = color
+      borderTopAfterColor = backgroundColor
       marginLeft = arrowSize
       break
     case "LEFT":
       right = "100%"
       topp = "50%"
       borderRightBeforeColor = borderColor
-      borderRightAfterColor = color
+      borderRightAfterColor = backgroundColor
       marginTop = arrowSize
       break
     default:
@@ -64,10 +64,11 @@ const ArrowBox = ({
     <div
       className={css`
         position: relative;
-        background: ${color};
-        border: ${borderSize}px solid ${borderColor};
-        height: 100px;
+        background: ${backgroundColor};
+        color: ${textColor};
+        border: ${borderWidth}px solid ${borderColor};
         width: 200px;
+        padding: 0.6rem;
         &:after,
         &:before {
           left: ${left};
@@ -86,9 +87,9 @@ const ArrowBox = ({
           border-left-color: ${borderLeftBeforeColor};
           border-top-color: ${borderTopBeforeColor};
           border-right-color: ${borderRightBeforeColor};
-          border-width: ${arrowSize + borderSize}px;
-          margin-left: -${marginLeft + borderSize}px;
-          margin-top: -${marginTop + borderSize}px;
+          border-width: ${arrowSize + borderWidth}px;
+          margin-left: -${marginLeft + borderWidth}px;
+          margin-top: -${marginTop + borderWidth}px;
         }
         &:after {
           border-bottom-color: ${borderBottomAfterColor};
@@ -107,18 +108,34 @@ const ArrowBox = ({
 }
 
 ArrowBox.propTypes = {
-  /** the text to show on the button */
-  text: PropTypes.string,
 
-  theme: PropTypes.object,
+  /** the width of the arrow itself */
+  arrowSize: PropTypes.number,
+
+  /** The position of the Box's Arrow */
+  position: PropTypes.string,
+
+  /** The background color... */
+  backgroundColor: PropTypes.string,
+
+  /** The border width */
+  borderWidth: PropTypes.number,
+
+  /** the border color */
+  borderColor: PropTypes.string,
+
+  /** the text color */
+  textColor: PropTypes.string,
 }
 
-ArrowBox.defaultProps = {
-  text: "Click me",
 
-  theme: {
-    button: {},
-  },
+ArrowBox.defaultProps = {
+  arrowSize: 10,
+  backgroundColor: "#FFF",
+  borderColor: "palevioletred",
+  borderWidth: 1,
+  position: "BOTTOM",
+  textColor: "#000",
 }
 
 export default ArrowBox
