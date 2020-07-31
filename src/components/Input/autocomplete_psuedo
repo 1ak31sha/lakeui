@@ -1,0 +1,326 @@
+
+live search
+Alligator.io home
+⚡ Latest
+JavaScript
+Vue.js
+React
+Angular
+CSS
+Gatsby
+↓
+Resources
+Node.js
+TypeScript
+Svelte
+Ionic
+Stencil
+RxJS
+Redux
+Testing
+GraphQL
+Workflow
+SVG
+Electron
+Flow
+Jekyll
+Sass
+HTML
+Web Components
+Flutter
+Polymer
+Light
+Dark
+Solarized
+Solarized Dark
+#REACT
+Building an Autocomplete Component in React
+joshtronic
+Ahhh autocomplete. You don’t realize how amazing it is until you run into an input field that doesn’t have it. In modern web design and development, it’s a must for improving a user’s experience and with React, it’s a breeze to build!
+
+The concept of autocomplete is simple, it’s just a list of suggestions based on a user’s input. The user can then hit enter (and sometimes tab) to complete the word of phrase.
+
+It saves the user time and that tends to make users happy.
+
+Autocomplete can be implemented any number of ways in regard to how the suggestions are filtered and presented and for this article we are going to use a fixed list of suggestions passed to our component. As the user types, we will filter the results and only show the suggestions that contain the user’s input anywhere in the suggestion.
+
+Those suggestions can be clicked or arrowed through and pressing enter will complete the word for the user.
+
+Some of the concepts we will utilize to build this component will be event binding, sniffing keyboard codes and local state management.
+
+Getting Started
+Before we dive into our autocomplete component, let’s put together the boilerplate for our application:
+
+import React from "react";
+import { render } from "react-dom";
+
+import Autocomplete from "./Autocomplete";
+
+function App() {
+  return (
+    <div>
+      <h1>React Autocomplete Demo</h1>
+      <h2>Start typing and experience the autocomplete wizardry!</h2>
+      <Autocomplete
+        suggestions={[
+          "Alligator",
+          "Bask",
+          "Crocodilian",
+          "Death Roll",
+          "Eggs",
+          "Jaws",
+          "Reptile",
+          "Solitary",
+          "Tail",
+          "Wetlands"
+        ]}
+      />
+    </div>
+  );
+}
+
+const container = document.createElement("div");
+document.body.appendChild(container);
+render(<App />, container);
+As you can see, there won’t be much to using our autocomplete component. Just pass it a list of suggestions and it will do the heavy lifting for us!
+
+The Autocomplete Component
+With our app ready to go, let’s build out our autocomplete component. You can follow along by reading the comments in the following code:
+
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
+
+class Autocomplete extends Component {
+  static propTypes = {
+    suggestions: PropTypes.instanceOf(Array)
+  };
+
+  static defaultProps = {
+    suggestions: []
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // The active selection's index
+      activeSuggestion: 0,
+      // The suggestions that match the user's input
+      filteredSuggestions: [],
+      // Whether or not the suggestion list is shown
+      showSuggestions: false,
+      // What the user has entered
+      userInput: ""
+    };
+  }
+
+  // Event fired when the input value is changed
+  onChange = e => {
+    const { suggestions } = this.props;
+    const userInput = e.currentTarget.value;
+
+    // Filter our suggestions that don't contain the user's input
+    const filteredSuggestions = suggestions.filter(
+      suggestion =>
+        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+    );
+
+    // Update the user input and filtered suggestions, reset the active
+    // suggestion and make sure the suggestions are shown
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions,
+      showSuggestions: true,
+      userInput: e.currentTarget.value
+    });
+  };
+
+  // Event fired when the user clicks on a suggestion
+  onClick = e => {
+    // Update the user input and reset the rest of the state
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions: [],
+      showSuggestions: false,
+      userInput: e.currentTarget.innerText
+    });
+  };
+
+  // Event fired when the user presses a key down
+  onKeyDown = e => {
+    const { activeSuggestion, filteredSuggestions } = this.state;
+
+    // User pressed the enter key, update the input and close the
+    // suggestions
+    if (e.keyCode === 13) {
+      this.setState({
+        activeSuggestion: 0,
+        showSuggestions: false,
+        userInput: filteredSuggestions[activeSuggestion]
+      });
+    }
+    // User pressed the up arrow, decrement the index
+    else if (e.keyCode === 38) {
+      if (activeSuggestion === 0) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion - 1 });
+    }
+    // User pressed the down arrow, increment the index
+    else if (e.keyCode === 40) {
+      if (activeSuggestion - 1 === filteredSuggestions.length) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion + 1 });
+    }
+  };
+
+  render() {
+    const {
+      onChange,
+      onClick,
+      onKeyDown,
+      state: {
+        activeSuggestion,
+        filteredSuggestions,
+        showSuggestions,
+        userInput
+      }
+    } = this;
+
+    let suggestionsListComponent;
+
+    if (showSuggestions && userInput) {
+      if (filteredSuggestions.length) {
+        suggestionsListComponent = (
+          <ul class="suggestions">
+            {filteredSuggestions.map((suggestion, index) => {
+              let className;
+
+              // Flag the active suggestion with a class
+              if (index === activeSuggestion) {
+                className = "suggestion-active";
+              }
+
+              return (
+                <li
+                  className={className}
+                  key={suggestion}
+                  onClick={onClick}
+                >
+                  {suggestion}
+                </li>
+              );
+            })}
+          </ul>
+        );
+      } else {
+        suggestionsListComponent = (
+          <div class="no-suggestions">
+            <em>No suggestions, you're on your own!</em>
+          </div>
+        );
+      }
+    }
+
+    return (
+      <Fragment>
+        <input
+          type="text"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={userInput}
+        />
+        {suggestionsListComponent}
+      </Fragment>
+    );
+  }
+}
+
+export default Autocomplete;
+Making It Pretty
+If you’ve given the autocomplete component a whirl already, you probably noticed it’s a bit hard on the eyes. To help improve the look as well as the functionality (by highlighting the active suggestion) all we need is a bit of CSS:
+
+body {
+  font-family: sans-serif;
+}
+
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
+}
+
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
+}
+
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.suggestion-active,
+.suggestions li:hover {
+  background-color: #008f68;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.suggestions li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
+That’s niiiiiice!
+
+Next Steps
+As mentioned, this is a simple implementation of an autocomplete component. It could be used as is or expanded upon to do things like loading suggestions from a database or firing up the suggestions for each word the user has typed in.
+
+Heck, you could even take it a step further and sniff out the ↹ key as another way to accept the completion!
+
+Sky’s the limit and you can find a working demo of this post’s code over on CodeSandbox.
+
+And in case you are looking for something a bit more feature rich, you could check out react-autosuggest
+
+Enjoy! 💥
+
+hot react picks
+React Hooks
+styled-components
+👩‍🎤 emotion
+Suspense
+React + Bulma
+React + Axios
+React Motion
+latest react posts
+A Sneak Peek at React Router v6
+Building a CRUD App with React Hooks & the Context API
+A Simple Guide to Error Boundaries in React
+5 Tips to Improve the Performance of Your React Apps
+all react posts
+follow us @alligatorio
+Published: August 19, 2018
+
+↑
+  Tweet It
+About
+Credits
+Contact
+Privacy
+Note that we link to certain 3rd party products via affiliate or sponsored links. You can learn more about it here.
+
+Code snippets licensed under MIT, unless otherwise noted.
+Content & Graphics © 2020 Alligator.io LLC
