@@ -13,7 +13,8 @@ import {
 const Table = ({ columns, data, rowClickCallback }) => {
   //
   //
-
+  // const foo = { bar: { foo: "bar"}}
+  // const test = bar?.foo
   const {
     getTableProps,
     getTableBodyProps,
