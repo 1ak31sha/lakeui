@@ -14,7 +14,8 @@ const Table = ({ columns, data, rowClickCallback }) => {
   //
   //
   // const foo = { bar: { foo: "bar"}}
-  // const test = bar?.foo
+  // const test = foo?.bar
+
   const {
     getTableProps,
     getTableBodyProps,

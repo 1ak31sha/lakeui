@@ -141,14 +141,15 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react"],
-            plugins: [
-              "@babel/plugin-transform-react-jsx",
-              "@babel/plugin-proposal-class-properties",
-              "transform-es2015-modules-commonjs",
-            ],
-          },
+          // options: {
+          //   presets: ["@babel/preset-react"],
+          //   plugins: [
+          //     "@babel/plugin-transform-react-jsx",
+          //     "@babel/plugin-proposal-class-properties",
+          //     "@babel/plugin-proposal-optional-chaining",
+          //     "transform-es2015-modules-commonjs",
+          //   ],
+          // },
         },
       },
       // "postcss" loader applies autoprefixer to our CSS.
