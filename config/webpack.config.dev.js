@@ -45,7 +45,7 @@ module.exports = {
     // require.resolve('webpack/hot/dev-server'),
     require.resolve("react-dev-utils/webpackHotDevClient"),
     // We ship a few polyfills by default:
-    require.resolve("./polyfills"),
+    // require.resolve("./polyfills"),
     // Finally, this is your app's code:
     paths.appIndexJs,
     // We include the app code last so that if there is a runtime error during
@@ -124,32 +124,34 @@ module.exports = {
       //    name: 'static/media/[name].[hash:8].[ext]',
       //  },
       //},
-      //// Process JS with Babel.
-      //{
-      //  test: /\.(js|jsx)$/,
-      //  include: paths.appSrc,
-      //  loader: 'babel',
-      //  query: {
-      //    // This is a feature of `babel-loader` for webpack (not Babel itself).
-      //    // It enables caching results in ./node_modules/.cache/babel-loader/
-      //    // directory for faster rebuilds.
-      //    cacheDirectory: true,
-      //  },
-      //},
+      // Process JS with Babel.
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   include: paths.appSrc,
+      //   loader: "babel",
+      //   query: {
+      //     // This is a feature of `babel-loader` for webpack (not Babel itself).
+      //     // It enables caching results in ./node_modules/.cache/babel-loader/
+      //     // directory for faster rebuilds.
+      //     cacheDirectory: true,
+      //   },
+      // },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
-          // options: {
-          //   presets: ["@babel/preset-react"],
-          //   plugins: [
-          //     "@babel/plugin-transform-react-jsx",
-          //     "@babel/plugin-proposal-class-properties",
-          //     "@babel/plugin-proposal-optional-chaining",
-          //     "transform-es2015-modules-commonjs",
-          //   ],
-          // },
+          options: {
+            // rootMode: "upward",
+            // presets: ["@babel/preset-react"],
+            plugins: [
+              "@babel/plugin-transform-react-jsx",
+              "@babel/plugin-transform-react-display-name",
+              // "@babel/plugin-proposal-class-properties",
+              "@babel/plugin-proposal-optional-chaining",
+              // "transform-es2015-modules-commonjs",
+            ],
+          },
         },
       },
       // "postcss" loader applies autoprefixer to our CSS.

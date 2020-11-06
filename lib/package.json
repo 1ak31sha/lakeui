@@ -14,9 +14,6 @@
   ],
   "homepage": "http://1ak31sha.github.io/lakeui/",
   "dependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.6",
     "emotion": "^10.0.27",
     "highlight.js": "^9.10.0",
