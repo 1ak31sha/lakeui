@@ -26,7 +26,10 @@ class Input extends React.Component {
     console.log(this.props)
     return (
       <React.Fragment>
-        {doesRender && (
+        {/*
+        <>asdf</>
+            */}
+      {doesRender && (
           <StyledInput
             value={value}
             placeholder={placeholder}

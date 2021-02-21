@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;700&display=swap');
+:root {
+  --space-xxxxs: calc(1rem / 16);
+  --kebab-radius: 0.25rem;
+  --primaryColor: #FEFEFE;
+  --borderColor: palevioletred
+}
+
+
+.arrow_box {
+  position: relative;
+  background: var(--primaryColor);
+  border: 1px solid var(--borderColor);
+}
+.arrow_box:after, .arrow_box:before {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-left-color: var(--primaryColor);
+  border-width: 30px;
+  margin-top: -30px;
+}
+.arrow_box:before {
+  border-left-color: var(--borderColor);
+  border-width: 31px;
+  margin-top: -31px;
+}

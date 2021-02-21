@@ -2,66 +2,33 @@ import React, { useState } from 'react'
 import Button from '@1ak31sha/ui/Button'
 
 function ButtonContainer() {
-  const [index, setIndex] = useState(0)
-  const [theme, setTheme] = useState()
-  // {
-  // button: {
-  // backgroundColor: 'white',
-  // borderColor: 'palevioletred',
-  // color: 'orange',
-  // },
-  // })
-  const themes = {
-    light: {
-      button: {
-        backgroundColor: '#121212',
-        borderColor: 'palevioletred',
-        color: 'palevioletred',
-        fontSize: '21pt',
-      },
-    },
-    dark: {
-      button: {
-        backgroundColor: '#202020',
-        borderColor: '#131313',
-        color: 'palevioletred',
-        fontSize: '16pt',
-        fontFamily: 'Avenir Next',
-        borderRadius: '3px',
-        width: '8em',
-        padding: '0.5rem 0',
-        margin: '0.5rem 1rem',
-        borderWidth: '0.051em',
-      },
-    },
-  }
+  const [theme, setTheme] = useState(false)
 
-  const toggleTheme = () => {
-    console.log('new drip', index % 3)
-    setIndex(index => index + 1)
-    setTheme()
+  const toggleTheme = theme => {
+    setTheme(!theme)
   }
 
   return (
-    <div className="">
-      <Button text="dark Theme" onClick={() => setTheme(themes.dark)} />
-      <br />
+    <div>
       <Button
-        color={'green'}
-        fontSize={32}
-        margin={index % 3}
-        text="Calculate"
-        theme={theme}
-        onClick={() => toggleTheme()}
-      />
-      <Button
-        color={index % 3}
-        margin={index % 3}
-        text="Calculate"
-        onClick={() => toggleTheme()}
+        light={theme}
+        text="Toggle Default Themes"
+        onClick={() => {
+          toggleTheme(theme)
+        }}
       />
       <br />
-      fontSize:{index}
+      <Button
+        text="Custom Theme"
+        theme={{
+          button: {
+            backgroundColor: 'yellow',
+            borderColor: 'black',
+            color: 'blue',
+            borderRadius: '0.07em'
+          },
+        }}
+      />
     </div>
   )
 }
